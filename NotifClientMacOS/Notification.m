@@ -19,7 +19,24 @@
 }
 
 - (NSString *) description {
-    return [NSString stringWithFormat: @"Notification: id=%@ topic=%@", self.uuid, self.topic];
+    if(!dateRepresentation) {
+        NSDate * date = nil;
+        if(_timestamp) {
+            date = [[NSDate alloc] initWithTimeIntervalSince1970:(_timestamp / 1000.0)];
+        } else {
+            date = [NSDate date];
+        }
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"dd-MM-yyyy HH:mm:SS"];
+        dateRepresentation = [dateFormat stringFromDate:date];
+    }
+    
+    if(_payload && [_payload valueForKey:@"text"]) {
+        return [NSString stringWithFormat: @"%@ - %@: %@", dateRepresentation, _topic, [_payload valueForKey:@"text"]];
+    }
+    
+    return [NSString stringWithFormat: @"%@ - %@", dateRepresentation, _topic];
+    
 }
 
 @end

@@ -7,51 +7,36 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Notification.h"
+#import "Requester.h"
+#import "Formatter.h"
 
-Notification * parseResponse(NSDictionary * response) {
-    NSString * uuid = [response valueForKey:@"uuid"];
-    NSString * topic = [response valueForKey:@"topic"];
-    NSString * timestamp = [response valueForKey:@"timestamp"];
-    NSDictionary * payload = [response valueForKey:@"payload"];
+Requester * requester = nil;
+
+void stop() {
+    NSLog(@"Received shutdown order.");
     
-    if(!uuid || !topic || !timestamp || !payload) {
-        @throw [[NSError alloc] initWithDomain:@"notif-client.parse" code:((NSInteger) 1) userInfo:[response copy]];
+    if(requester) {
+        [requester stop];
     }
-    
-    Notification * notification = [[Notification alloc] initWithId:uuid];
-    notification.timestamp = timestamp;
-    notification.topic = topic;
-    notification.payload = payload;
-    
-    return notification;
 }
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSURL *url = [NSURL URLWithString:@"http://localhost:3000/test?requeue=1"];
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-        NSURLResponse * response = nil;
-        NSError * error = nil;
-        NSData * data = [NSURLConnection sendSynchronousRequest:request
-                                              returningResponse:&response
-                                                          error:&error];
-        
-        if (error == nil){
-            
-            id object = [NSJSONSerialization
-                         JSONObjectWithData:data
-                         options:0
-                         error:&error];
-            if([object isKindOfClass:[NSArray class]]) {
-                NSLog(@"Success!! %@", parseResponse(((NSArray *) object)[0]));
-            } else {
-                NSLog(@"Class %@", [object className]);
-            }
-            
-        } else {
-            NSLog(@"Error!! %@", error);
+        if(argc != 2) {
+            NSLog(@"Usage: notifications <url>");
+            return 1;
         }
+        
+        signal(SIGINT, stop);
+        
+        NSString * url = [NSString stringWithFormat:@"%s", argv[1]];
+        NSURL * requestUrl = [NSURL URLWithString:url];
+        
+        Formatter * formatter = [[Formatter alloc] init];
+        requester = [[Requester alloc] initWithUrl:requestUrl interval:2.0f formatter:formatter];
+        
+        [requester run];
+        
     }
     return 0;
 }

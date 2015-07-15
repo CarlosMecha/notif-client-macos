@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Notification : NSObject
+@interface Notification : NSObject {
+    NSString * dateRepresentation;
+}
 
 @property (copy, readonly) NSString *uuid;
 @property (copy) NSString *topic;
 @property (copy) NSDictionary *payload;
-@property (copy) NSString *timestamp;
+@property NSTimeInterval timestamp;
 
 - (id)initWithId:(NSString *) uuid;
 - (NSString *) description;

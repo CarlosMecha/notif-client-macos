@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0702B8B91B55C94E00918D84 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8B81B55C94E00918D84 /* Notification.m */; };
+		0702B8BC1B56B83400918D84 /* Requester.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8BB1B56B83400918D84 /* Requester.m */; };
+		0702B8BF1B56BEA600918D84 /* Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8BE1B56BEA600918D84 /* Formatter.m */; };
 		079763541B55C74C00BEB9A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 079763531B55C74C00BEB9A5 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,10 @@
 /* Begin PBXFileReference section */
 		0702B8B71B55C94E00918D84 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		0702B8B81B55C94E00918D84 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		0702B8BA1B56B83400918D84 /* Requester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Requester.h; sourceTree = "<group>"; };
+		0702B8BB1B56B83400918D84 /* Requester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Requester.m; sourceTree = "<group>"; };
+		0702B8BD1B56BEA600918D84 /* Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatter.h; sourceTree = "<group>"; };
+		0702B8BE1B56BEA600918D84 /* Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formatter.m; sourceTree = "<group>"; };
 		079763501B55C74C00BEB9A5 /* NotifClientMacOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NotifClientMacOS; sourceTree = BUILT_PRODUCTS_DIR; };
 		079763531B55C74C00BEB9A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +69,10 @@
 				079763531B55C74C00BEB9A5 /* main.m */,
 				0702B8B71B55C94E00918D84 /* Notification.h */,
 				0702B8B81B55C94E00918D84 /* Notification.m */,
+				0702B8BA1B56B83400918D84 /* Requester.h */,
+				0702B8BB1B56B83400918D84 /* Requester.m */,
+				0702B8BD1B56BEA600918D84 /* Formatter.h */,
+				0702B8BE1B56BEA600918D84 /* Formatter.m */,
 			);
 			path = NotifClientMacOS;
 			sourceTree = "<group>";
@@ -123,7 +133,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0702B8BC1B56B83400918D84 /* Requester.m in Sources */,
 				0702B8B91B55C94E00918D84 /* Notification.m in Sources */,
+				0702B8BF1B56BEA600918D84 /* Formatter.m in Sources */,
 				079763541B55C74C00BEB9A5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
