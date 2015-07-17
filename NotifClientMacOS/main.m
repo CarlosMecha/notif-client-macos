@@ -23,7 +23,7 @@ void stop() {
     
     // Waiting for the thread a little bit longer.
     if(started) {
-        [NSThread sleepForTimeInterval:1000.0f];
+        [NSThread sleepForTimeInterval:2.0f];
     }
     
     stopped = true;
@@ -53,7 +53,7 @@ int main(int argc, const char * argv[]) {
         
         // Wait until something happens.
         while(!stopped) {
-            [NSThread sleepForTimeInterval:500.0f];
+            [NSThread sleepForTimeInterval:0.5f];
         }
         
     }
