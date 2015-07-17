@@ -11,6 +11,8 @@
 #import "Formatter.h"
 
 Requester * requester = nil;
+BOOL stopped;
+BOOL started;
 
 void stop() {
     NSLog(@"Received shutdown order.");
@@ -18,6 +20,13 @@ void stop() {
     if(requester) {
         [requester stop];
     }
+    
+    // Waiting for the thread a little bit longer.
+    if(started) {
+        [NSThread sleepForTimeInterval:1000.0f];
+    }
+    
+    stopped = true;
 }
 
 int main(int argc, const char * argv[]) {
@@ -28,14 +37,24 @@ int main(int argc, const char * argv[]) {
         }
         
         signal(SIGINT, stop);
+
+        started = false;
         
         NSString * url = [NSString stringWithFormat:@"%s", argv[1]];
         NSURL * requestUrl = [NSURL URLWithString:url];
-        
         Formatter * formatter = [[Formatter alloc] init];
         requester = [[Requester alloc] initWithUrl:requestUrl interval:2.0f formatter:formatter];
         
-        [requester run];
+        // Create thread.
+        [NSThread detachNewThreadSelector:@selector(run) toTarget:requester withObject:nil];
+        
+        started = true;
+        stopped = false;
+        
+        // Wait until something happens.
+        while(!stopped) {
+            [NSThread sleepForTimeInterval:500.0f];
+        }
         
     }
     return 0;
