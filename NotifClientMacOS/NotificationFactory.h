@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Notification.h"
 
-@interface Formatter : NSObject
+@interface NotificationFactory : NSObject
 
-- (Notification *) format: (NSDictionary *) dict error: (NSError *) error;
+- (Notification *) create: (NSDictionary *) dict error: (NSError *) error;
 
 @end

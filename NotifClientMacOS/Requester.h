@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Formatter.h"
+#import "NotificationFactory.h"
+#import "NotificationDisplay.h"
 
 @interface Requester : NSObject {
     BOOL _stopped;
@@ -15,9 +16,11 @@
 
 @property (readonly) NSTimeInterval secs;
 @property (readonly) NSURL * url;
-@property (readonly) Formatter * formatter;
+@property (readonly) NotificationFactory * factory;
+@property (readonly) NSObject<NotificationDisplay> * display;
 
-- (id) initWithUrl: (NSURL *) url interval: (NSTimeInterval) secs formatter: (Formatter *) formatter;
+- (id) initWithUrl: (NSURL *) url interval: (NSTimeInterval) secs factory: (NotificationFactory *) factory;
+- (id) initWithUrlAndDisplay: (NSURL *) url interval: (NSTimeInterval) secs factory: (NotificationFactory *) factory display:(NSObject<NotificationDisplay> *)display;
 - (void) stop;
 - (void) run;
 

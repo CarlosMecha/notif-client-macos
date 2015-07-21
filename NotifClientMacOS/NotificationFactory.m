@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Carlos Mecha. All rights reserved.
 //
 
-#import "Formatter.h"
+#import "NotificationFactory.h"
 
-@implementation Formatter
+@implementation NotificationFactory
 
-- (Notification *) format:(NSDictionary *)dict error:(NSError *)error {
+- (Notification *) create:(NSDictionary *)dict error:(NSError *)error {
     NSString * uuid = [dict valueForKey:@"uuid"];
     NSString * topic = [dict valueForKey:@"topic"];
     NSNumber * timestamp = [dict valueForKey:@"timestamp"];
