@@ -26,7 +26,8 @@ DerivedData
 #Pods/
 
 xcuserdata/
-NotifClientMacOS.xcworkspace/
+project.xcworkspace/
+UserInterfaceState.xcuserstate
 
 #Tmp
 .DS_Store
