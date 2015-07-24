@@ -16,13 +16,17 @@
     NSNumber * timestamp = [dict valueForKey:@"timestamp"];
     NSDictionary * payload = [dict valueForKey:@"payload"];
     
-    if(!uuid || !topic || !timestamp || !payload) {
+    if(uuid == nil || topic == nil || timestamp == nil || payload == nil) {
         error = [[NSError alloc] initWithDomain:@"notif-client.parse" code:((NSInteger) 1) userInfo:[dict copy]];
     }
     
     Notification * notification = [[Notification alloc] initWithId:uuid];
     notification.timestamp = [timestamp doubleValue];
-    notification.topic = topic;
+    if(![topic isEqualToString:@"_default"]) {
+        notification.topic = @"Notification";
+    } else {
+        notification.topic = topic;
+    }
     notification.payload = payload;
     
     return notification;

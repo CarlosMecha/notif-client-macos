@@ -9,14 +9,20 @@ a notifications service (currently using [www.github.com/CarlosMecha/notificatio
 Carlos Mecha, 2015
 
 - Version 0.1: Developed from 07/13/2015 and released on 07/17/2015.
+- Version 0.5: Developed from 07/20/2015 and released on 07/24/2015.
 
 ## Run it
 
 Compile using XCode 6. Next versions will provide an script or binaries.
 
 ```
-./NotifClientMacOS <url>/[<topic>]
+./NotifClientMacOS [-g] <url>/[<topic>]
 ```
+
+The option `-g` activates the graphical component, that calls the Notification Center for
+each received notification.
+
+The payloads should contain a `text` field with the description of the notification.
 
 ## Tests
 

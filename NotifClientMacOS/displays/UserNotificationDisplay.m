@@ -12,9 +12,11 @@
 
 #import "UserNotificationDisplay.h"
 #import "Notification.h"
-#import "NSMutableArray+QueueAdditions.h"
 
 #import <objc/runtime.h>
+
+
+/* Required to initialize the GUI from a terminal application. */
 
 NSString * fakeBundleIdentifier = nil;
 
@@ -60,15 +62,6 @@ static NotificationCenterDelegate * delegate;
     center = [NSUserNotificationCenter defaultUserNotificationCenter];
     delegate = [[NotificationCenterDelegate alloc]init];
 
-}
-
-- (id) initWithBuffer:(int)size {
-    self = [super init];
-    if(self) {
-        _bufferSize = size;
-        _buffer = [[NSMutableArray alloc] initWithCapacity:_bufferSize];
-    }
-    return self;
 }
 
 - (void) display:(Notification *)notification {

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Notification.h"
 
+/*
+ * Factory to create notifications from a NSDictionary.
+ */
 @interface NotificationFactory : NSObject
 
 - (Notification *) create: (NSDictionary *) dict error: (NSError *) error;

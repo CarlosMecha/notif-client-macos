@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "NotificationDisplay.h"
 
+/*
+ * Stdout implementation of a display.
+ */
 @interface TextDisplay : NSObject <NotificationDisplay>
 
 @end

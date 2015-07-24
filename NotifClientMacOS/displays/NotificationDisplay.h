@@ -13,6 +13,9 @@
 
 @protocol NotificationDisplay<NSObject>
 
+/*
+ * Displays a notification.
+ */
 - (void) display:(Notification *)notification;
 
 @end

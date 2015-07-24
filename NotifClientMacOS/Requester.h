@@ -10,17 +10,27 @@
 #import "NotificationFactory.h"
 #import "NotificationDisplay.h"
 
+extern const NSInteger DefaultBufferSize;
+extern const NSTimeInterval DefaultInterval;
+
+/*
+ * Class for requesting new notifications to the server.
+ */
 @interface Requester : NSObject {
     BOOL _stopped;
+    NSMutableArray * _buffer;
 }
 
-@property (readonly) NSTimeInterval secs;
+/* Buffer size, by default 1024 */
+@property NSInteger bufferSize;
+/* Request interval in seconds, by default 2. */
+@property NSTimeInterval interval;
 @property (readonly) NSURL * url;
 @property (readonly) NotificationFactory * factory;
 @property (readonly) NSObject<NotificationDisplay> * display;
 
-- (id) initWithUrl: (NSURL *) url interval: (NSTimeInterval) secs factory: (NotificationFactory *) factory;
-- (id) initWithUrlAndDisplay: (NSURL *) url interval: (NSTimeInterval) secs factory: (NotificationFactory *) factory display:(NSObject<NotificationDisplay> *)display;
+- (id) initWithUrl: (NSURL *) url factory: (NotificationFactory *) factory;
+- (id) initWithUrlAndDisplay: (NSURL *) url factory: (NotificationFactory *) factory display:(NSObject<NotificationDisplay> *)display;
 - (void) stop;
 - (void) run;
 

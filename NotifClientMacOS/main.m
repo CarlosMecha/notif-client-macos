@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
                 return 1;
             }
             [UserNotificationDisplay setUp];
-            display = [[UserNotificationDisplay alloc] initWithBuffer:16];
+            display = [[UserNotificationDisplay alloc] init];
             urlIndex = 2;
         } else {
             if(argc != 2) {
@@ -73,7 +73,7 @@ int main(int argc, const char * argv[]) {
         
         NSURL * requestUrl = [NSURL URLWithString:url];
         NotificationFactory * formatter = [[NotificationFactory alloc] init];
-        requester = [[Requester alloc] initWithUrlAndDisplay:requestUrl interval:2.0f factory:formatter display:display];
+        requester = [[Requester alloc] initWithUrlAndDisplay:requestUrl factory:formatter display:display];
         
         // Create thread.
         [NSThread detachNewThreadSelector:@selector(run) toTarget:requester withObject:nil];

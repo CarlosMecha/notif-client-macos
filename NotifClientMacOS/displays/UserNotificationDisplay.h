@@ -10,14 +10,12 @@
 #import "NotificationDisplay.h"
 
 @interface UserNotificationDisplay : NSObject <NotificationDisplay> {
-    NSMutableArray * _buffer;
 }
 
-@property (readonly) int bufferSize;
-
+/*
+ * This method should be called to configure the GUI.
+ */
 + (void) setUp;
-
-- (id) initWithBuffer:(int) size;
 
 @end
 

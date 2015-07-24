@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ * Notification class.
+ */
 @interface Notification : NSObject {
     NSString * dateRepresentation;
 }
@@ -18,6 +21,10 @@
 @property NSTimeInterval timestamp;
 
 - (id)initWithId:(NSString *) uuid;
+
+/*
+ * Uses the payload to generate the representation of a notification.
+ */
 - (NSString *) description;
 
 @end
