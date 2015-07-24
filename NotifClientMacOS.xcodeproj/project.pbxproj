@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		0702B8B91B55C94E00918D84 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8B81B55C94E00918D84 /* Notification.m */; };
 		0702B8BC1B56B83400918D84 /* Requester.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8BB1B56B83400918D84 /* Requester.m */; };
-		0702B8BF1B56BEA600918D84 /* Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8BE1B56BEA600918D84 /* Formatter.m */; };
+		0702B8BF1B56BEA600918D84 /* NotificationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702B8BE1B56BEA600918D84 /* NotificationFactory.m */; };
+		07151B261B5EA34F000E11F8 /* TextDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 07151B251B5EA34F000E11F8 /* TextDisplay.m */; };
+		07151B2B1B5EAC8A000E11F8 /* UserNotificationDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 07151B2A1B5EAC8A000E11F8 /* UserNotificationDisplay.m */; };
+		07151B301B5EB0DE000E11F8 /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 07151B2F1B5EB0DE000E11F8 /* NSMutableArray+QueueAdditions.m */; };
 		079763541B55C74C00BEB9A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 079763531B55C74C00BEB9A5 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +33,15 @@
 		0702B8B81B55C94E00918D84 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		0702B8BA1B56B83400918D84 /* Requester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Requester.h; sourceTree = "<group>"; };
 		0702B8BB1B56B83400918D84 /* Requester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Requester.m; sourceTree = "<group>"; };
-		0702B8BD1B56BEA600918D84 /* Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Formatter.h; sourceTree = "<group>"; };
-		0702B8BE1B56BEA600918D84 /* Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Formatter.m; sourceTree = "<group>"; };
+		0702B8BD1B56BEA600918D84 /* NotificationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationFactory.h; sourceTree = "<group>"; };
+		0702B8BE1B56BEA600918D84 /* NotificationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationFactory.m; sourceTree = "<group>"; };
+		07151B231B5EA2CB000E11F8 /* NotificationDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDisplay.h; sourceTree = "<group>"; };
+		07151B241B5EA34F000E11F8 /* TextDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextDisplay.h; sourceTree = "<group>"; };
+		07151B251B5EA34F000E11F8 /* TextDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextDisplay.m; sourceTree = "<group>"; };
+		07151B291B5EAC8A000E11F8 /* UserNotificationDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNotificationDisplay.h; sourceTree = "<group>"; };
+		07151B2A1B5EAC8A000E11F8 /* UserNotificationDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotificationDisplay.m; sourceTree = "<group>"; };
+		07151B2E1B5EB06B000E11F8 /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
+		07151B2F1B5EB0DE000E11F8 /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		079763501B55C74C00BEB9A5 /* NotifClientMacOS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NotifClientMacOS; sourceTree = BUILT_PRODUCTS_DIR; };
 		079763531B55C74C00BEB9A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +57,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07151B281B5EAA49000E11F8 /* displays */ = {
+			isa = PBXGroup;
+			children = (
+				07151B231B5EA2CB000E11F8 /* NotificationDisplay.h */,
+				07151B241B5EA34F000E11F8 /* TextDisplay.h */,
+				07151B251B5EA34F000E11F8 /* TextDisplay.m */,
+				07151B291B5EAC8A000E11F8 /* UserNotificationDisplay.h */,
+				07151B2A1B5EAC8A000E11F8 /* UserNotificationDisplay.m */,
+			);
+			path = displays;
+			sourceTree = "<group>";
+		};
+		07151B2C1B5EB020000E11F8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				07151B2E1B5EB06B000E11F8 /* NSMutableArray+QueueAdditions.h */,
+				07151B2F1B5EB0DE000E11F8 /* NSMutableArray+QueueAdditions.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		079763471B55C74C00BEB9A5 = {
 			isa = PBXGroup;
 			children = (
@@ -66,13 +97,15 @@
 		079763521B55C74C00BEB9A5 /* NotifClientMacOS */ = {
 			isa = PBXGroup;
 			children = (
+				07151B2C1B5EB020000E11F8 /* util */,
+				07151B281B5EAA49000E11F8 /* displays */,
 				079763531B55C74C00BEB9A5 /* main.m */,
 				0702B8B71B55C94E00918D84 /* Notification.h */,
 				0702B8B81B55C94E00918D84 /* Notification.m */,
 				0702B8BA1B56B83400918D84 /* Requester.h */,
 				0702B8BB1B56B83400918D84 /* Requester.m */,
-				0702B8BD1B56BEA600918D84 /* Formatter.h */,
-				0702B8BE1B56BEA600918D84 /* Formatter.m */,
+				0702B8BD1B56BEA600918D84 /* NotificationFactory.h */,
+				0702B8BE1B56BEA600918D84 /* NotificationFactory.m */,
 			);
 			path = NotifClientMacOS;
 			sourceTree = "<group>";
@@ -117,6 +150,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 079763471B55C74C00BEB9A5;
 			productRefGroup = 079763511B55C74C00BEB9A5 /* Products */;
@@ -133,10 +167,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07151B261B5EA34F000E11F8 /* TextDisplay.m in Sources */,
 				0702B8BC1B56B83400918D84 /* Requester.m in Sources */,
+				07151B2B1B5EAC8A000E11F8 /* UserNotificationDisplay.m in Sources */,
 				0702B8B91B55C94E00918D84 /* Notification.m in Sources */,
-				0702B8BF1B56BEA600918D84 /* Formatter.m in Sources */,
+				0702B8BF1B56BEA600918D84 /* NotificationFactory.m in Sources */,
 				079763541B55C74C00BEB9A5 /* main.m in Sources */,
+				07151B301B5EB0DE000E11F8 /* NSMutableArray+QueueAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

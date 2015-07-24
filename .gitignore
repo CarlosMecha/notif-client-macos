@@ -25,6 +25,10 @@ DerivedData
 #
 #Pods/
 
+xcuserdata/
+project.xcworkspace/
+UserInterfaceState.xcuserstate
+
 #Tmp
 .DS_Store
 ~*

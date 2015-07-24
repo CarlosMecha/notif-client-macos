@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Requester.h"
-#import "Formatter.h"
+#import "NotificationFactory.h"
+#import "NotificationDisplay.h"
+#import "TextDisplay.h"
+#import "UserNotificationDisplay.h"
 
 Requester * requester = nil;
 BOOL stopped;
@@ -29,21 +32,48 @@ void stop() {
     stopped = true;
 }
 
+void help() {
+    NSLog(@"Usage: notifications [-g] <url>");
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        if(argc != 2) {
-            NSLog(@"Usage: notifications <url>");
+        if(argc < 2) {
+            help();
             return 1;
         }
         
+        NSString * arg1 = [NSString stringWithFormat:@"%s", argv[1]];
+        
+        int urlIndex;
+        
+        NSObject<NotificationDisplay> * display;
+        
+        if([arg1 isEqualToString:@"-g"]) {
+            if(argc != 3) {
+                help();
+                return 1;
+            }
+            [UserNotificationDisplay setUp];
+            display = [[UserNotificationDisplay alloc] init];
+            urlIndex = 2;
+        } else {
+            if(argc != 2) {
+                help();
+                return 1;
+            }
+            urlIndex = 1;
+            display = [[TextDisplay alloc] init];
+        }
+        
         signal(SIGINT, stop);
-
+        
+        NSString * url = [NSString stringWithFormat:@"%s", argv[urlIndex]];
         started = false;
         
-        NSString * url = [NSString stringWithFormat:@"%s", argv[1]];
         NSURL * requestUrl = [NSURL URLWithString:url];
-        Formatter * formatter = [[Formatter alloc] init];
-        requester = [[Requester alloc] initWithUrl:requestUrl interval:2.0f formatter:formatter];
+        NotificationFactory * formatter = [[NotificationFactory alloc] init];
+        requester = [[Requester alloc] initWithUrlAndDisplay:requestUrl factory:formatter display:display];
         
         // Create thread.
         [NSThread detachNewThreadSelector:@selector(run) toTarget:requester withObject:nil];
